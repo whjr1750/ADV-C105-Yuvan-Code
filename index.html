@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <style>
+      .button {
+        background-color: #04aa6d;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+
+      .button2 {
+        background-color: #04aa6d;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 11px;
+        margin: 2px 2px;
+        cursor: pointer;
+      }
+
+      .label {
+        background-color: #04aa6d;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+    <title>Image recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="col-lg-1">
+      <span class="label">Click The Below Button To get Information</span>
+      <br />
+      <br />
+      <button class="button" onclick="openForm()">This Model Recognizes</button>
+      <button
+        class="button"
+        onclick="location.href = 'index2.html';"
+        id="mybutton2"
+      >
+        Main Menu
+      </button>
+      <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <h1>Model Recognizes</h1>
+          <b class="name_of_objects">
+            <button class="button2">Electric Brush</button>
+            <hr />
+            <button class="button2">Normal Phone</button>
+            <hr />
+            <button class="button2">Foldable Phone</button>
+            <hr />
+            <button class="button2">Brush</button>
+            <hr />
+            <button class="button2">ring</button>
+            <hr />
+            <button class="button2">pen</button>
+            <hr />
+            <button class="button2">Remote</button>
+            <hr />
+            <button class="button2">Clip</button>
+            <hr />
+            <button class="button2">Cover</button>
+            <hr />
+          </b>
+          <br />
+          <button class="button" onclick="closeForm()">Close Menu</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <center>
+        <h3 class="button">IMAGE RECORDING</h3>
+        <br /><br />
+
+        <p style="font-size: 22px">Webcam</p>
+
+        <label>Webcam View - </label>
+        <div id="camera"></div>
+        <br /><br />
+        <div id="result"></div>
+        <br /><br />
+        <button
+          class="button"
+          onclick="take_snapshot();"
+          class="btn btn-success"
+        >
+          Capture Image
+        </button>
+        <br /><br />
+        <button class="button" onclick="check();" class="btn btn-success">
+          Identify Image
+        </button>
+        <br /><br />
+
+        <p style="font-size: 22px">Object :<span id="result_object_name"></span> </p>  <!-- Updated id in span tag here -->
+        <p style="font-size: 22px">Accuracy :<span id="result_object_accuracy"></span></p> <!-- Updated id in span tag here -->
+      </center>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
